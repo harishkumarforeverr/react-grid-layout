@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+.dev-helper .react-grid-item {
+  border: 1px dotted red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  border: 1px solid gray;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  padding-left: 0;
+}
+
+ul li {
+  list-style: none;
+}
