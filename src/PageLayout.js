@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import InfoPanel from "./InfoPanel";
 
-const ResponsiveGridLayout = WidthProvider(Responsive);
+const   ResponsiveGridLayout = WidthProvider(Responsive);
 
 export default (props) => {
   const [currentBreakPoints, setCurrentBreakPoints] = useState("");
   const defaultProps = {
-    className: "dev-helper",
+    className: "dev-helper"+" "+props.customClass,
     isDraggable: true,
     isResizable: true,
     allowOverlap:true,

@@ -5,6 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.21.6",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-draggable": "^4.4.5",

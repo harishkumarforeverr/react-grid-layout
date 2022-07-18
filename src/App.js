@@ -2,6 +2,13 @@ import PageLayout from "./PageLayout";
 import "./styles.css";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
+import {
+  HomeOutlined,
+  LoadingOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+} from "@ant-design/icons";
 const layouts = {
   xxl: [
     { static: true, i: "first", x: 1, y: 0, w: 3, h: 2, resizeHandles: ["e"] },
@@ -72,29 +79,50 @@ export default function App() {
   return (
     <>
       <PageLayout layouts={layouts}>
-        <div key="icon1">Icons 1</div>
+        <div key="icon1">
+          {" "}
+          <HomeOutlined />
+        </div>
+        <div key="icon2">
+          {" "}
+          <SettingFilled />
+        </div>
+        <div key="icon3">
+          {" "}
+          <SmileOutlined />
+        </div>
+        <div key="icon4">
+          {" "}
+          <SyncOutlined spin />
+        </div>
+        <div key="icon5">
+          {" "}
+          <LoadingOutlined />
+        </div>
         <div
-         key="icon2">Icons 2</div>
-        <div key="icon3">Icons 3</div>
-        <div key="icon4">Icons 4</div>
-        <div key="icon5">Icons 5</div>
+          style={{
+            zIndex: -1,
+          }}
+          key="first"
+        >
+          Container 1
+        </div>
         <div
-        style={{
-          zIndex:-1
-        }}
-         key="first">Container 1</div>
-        <div 
-        
-        style={{
-          zIndex:-1
-        }}
-        key="second">Container 2</div>
-        <div 
-        
-        style={{
-          zIndex:-1
-        }}
-        key="third">Container 3</div>
+          style={{
+            zIndex: -1,
+          }}
+          key="second"
+        >
+          Container 2
+        </div>
+        <div
+          style={{
+            zIndex: -1,
+          }}
+          key="third"
+        >
+          Container 3
+        </div>
       </PageLayout>
     </>
   );
