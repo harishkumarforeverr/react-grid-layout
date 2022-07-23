@@ -27,3 +27,6 @@ ul {
 ul li {
   list-style: none;
 }
+.App {
+  height: 150rem;
+}

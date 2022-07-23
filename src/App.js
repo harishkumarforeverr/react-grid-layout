@@ -4,7 +4,7 @@ import GridIndex from "./GridIndex";
 // GridIndex
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <DragAndDrop />
       {/* <GridIndex /> */}
     </div>

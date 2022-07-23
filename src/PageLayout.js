@@ -9,7 +9,7 @@ export default (props) => {
   const [currentBreakPoints, setCurrentBreakPoints] = useState("");
   const defaultProps = {
     className: "dev-helper",
-    isDraggable: true,
+    isDraggable: false,
     isResizable: true,
     // allowOverlap:true,
     // preventCollision:true,

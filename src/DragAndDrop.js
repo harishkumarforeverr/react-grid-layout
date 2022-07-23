@@ -16,33 +16,33 @@ import DragAndDrop from "./DragAndDrop";
 import PageLayout from "./PageLayout";
 const layouts = {
   xxl: [
-    { static: true, i: "first", x: 0, y: 0, w: 5, h: 4 },
-    { static: true, i: "second", x: 6, y: 0, w: 4, h: 4 },
-    { static: true, i: "third", x: 8, y: 0, w: 3, h: 2 },
+    {   i: "first", x: 0, y: 0, w: 5, h: 4 },
+    {   i: "second", x: 6, y: 0, w: 4, h: 4 },
+    {   i: "third", x: 8, y: 0, w: 3, h: 2 },
   ],
   xl: [
-    { static: true, i: "first", x: 0, y: 0, w: 5, h: 5 },
-    { static: true, i: "second", x: 5, y: 0, w: 4, h: 3 },
-    { static: true, i: "third", x: 7, y: 0, w: 2, h: 2 },
+    {   i: "first", x: 0, y: 0, w: 5, h: 5 },
+    {   i: "second", x: 6, y: 0, w: 4, h: 5 },
+    {   i: "third", x: 7, y: 0, w: 2, h: 2 },
   ],
   lg: [
-    { static: true, i: "first", x: 1, y: 0, w: 2, h: 2 },
-    { static: true, i: "second", x: 3, y: 0, w: 2, h: 2 },
-    { static: true, i: "third", x: 5, y: 0, w: 2, h: 2 },
+    {   i: "first", x: 1, y: 0, w: 2, h: 2 },
+    {   i: "second", x: 3, y: 0, w: 2, h: 2 },
+    {   i: "third", x: 5, y: 0, w: 2, h: 2 },
   ],
   md: [
-    { static: true, i: "first", x: 0, y: 0, w: 2, h: 2 },
-    { static: true, i: "second", x: 2, y: 0, w: 2, h: 2 },
-    { static: true, i: "third", x: 4, y: 0, w: 2, h: 2 },
+    {   i: "first", x: 0, y: 0, w: 2, h: 2 },
+    {   i: "second", x: 2, y: 0, w: 2, h: 2 },
+    {   i: "third", x: 4, y: 0, w: 2, h: 2 },
   ],
   sm: [
-    { static: true, i: "first", x: 0, y: 0, w: 1, h: 2 },
-    { static: true, i: "second", x: 1, y: 0, w: 2, h: 2 },
-    { static: true, i: "third", x: 3, y: 0, w: 1, h: 2 },
+    {   i: "first", x: 0, y: 0, w: 1, h: 2 },
+    {   i: "second", x: 1, y: 0, w: 2, h: 2 },
+    {   i: "third", x: 3, y: 0, w: 1, h: 2 },
   ],
   xs: [
     {
-      static: true,
+       
       i: "first",
       x: 0,
       y: 0,
@@ -50,8 +50,8 @@ const layouts = {
       h: 2,
       resizeHandles: ["s"], // 利用断点可以配置个性化的 resizeHandles
     },
-    { static: true, i: "second", x: 0, y: 2, w: 2, h: 2 },
-    { static: true, i: "third", x: 0, y: 4, w: 2, h: 2 },
+    {   i: "second", x: 0, y: 2, w: 2, h: 2 },
+    {   i: "third", x: 0, y: 4, w: 2, h: 2 },
   ],
 };
 export default class AppDragDropDemo extends Component {
@@ -86,7 +86,7 @@ export default class AppDragDropDemo extends Component {
       const updated = this.state.customLayout[value].map((obj) => {
         return {
           ...obj,
-          static: bool,
+          // static: bool,
         };
       });
       newObj[value] = updated;
@@ -141,7 +141,7 @@ export default class AppDragDropDemo extends Component {
     return (
       <div className="container-drag">
         <div>
-          <button
+          {/* <button
             style={{
               width: "15rem",
               height: "3.5rem",
@@ -151,7 +151,7 @@ export default class AppDragDropDemo extends Component {
             onClick={this.handleCustomLayout}
           >
             Toggle Area increase
-          </button>
+          </button> */}
         </div>
         <div>
           <h1>OuterDiv start here</h1>
