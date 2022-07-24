@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Responsive, WidthProvider } from "react-grid-layout";
-import InfoPanel from "./InfoPanel";
+import { Responsive, WidthProvider } from "react-grid-layout"; 
 
 import React, { Component } from "react";
 const   ResponsiveGridLayout = WidthProvider(Responsive);

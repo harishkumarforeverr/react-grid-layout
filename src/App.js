@@ -1,14 +1,9 @@
 import React from "react";
-import DragAndDrop from "./DragAndDrop";
-import GridIndex from "./GridIndex";
-import Rufe from "./Rufe";
-// GridIndex
+import DragAndDrop from "./DragAndDrop"; 
 const App = () => {
   return (
     <div className="App">
-      <DragAndDrop />
-      {/* <GridIndex /> */}
-      {/* <Rufe /> */}
+      <DragAndDrop /> 
     </div>
   );
 };
