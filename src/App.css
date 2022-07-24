@@ -31,3 +31,10 @@
 .layoutConatiner {
   margin-top: 7rem;
 }
+.selectDropdown {
+  margin: 13rem 0;
+  background-color: red;
+}
+.ant-select {
+  width: 100%;
+}

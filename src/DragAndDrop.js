@@ -8,6 +8,8 @@ import { Slider } from "antd";
 import { PlusCircleFilled } from "@ant-design/icons";
 import GirlImage from "./dummyImage.jpg";
 import PageLayout from "./PageLayout";
+import { Select } from "antd";
+const { Option } = Select;
 const layouts = {
   xxl: [
     { i: "first", x: 0, y: 0, w: 5, h: 4 },
@@ -117,6 +119,7 @@ const AppDragDropDemo = () => {
     customLayout: layouts,
   };
   const [state, setState] = useState(initialState);
+  const [rotate, setRotate] = useState(0);
   const onDragStart = (ev, id) => {
     console.log("dragstart:", id);
     ev.dataTransfer.setData("id", id);
@@ -192,6 +195,19 @@ const AppDragDropDemo = () => {
         </PageLayout>
         <h2> OuterDiv ends here</h2>
       </div>
+      <div className="selectDropdown">
+        <Select
+          defaultValue="0"
+          onChange={(e) => {
+            setRotate(e);
+          }}
+        >
+          <Option value="0">0 degree</Option>
+          <Option value="90">90 degree</Option>
+          <Option value="180">180 degree</Option>
+          <Option value="360">360 degree</Option>
+        </Select>
+      </div>
       <div className="layoutConatiner">
         <PageLayout layouts={state.customLayout}>
           <div key="first">
@@ -204,6 +220,7 @@ const AppDragDropDemo = () => {
               style={{
                 width: "100%",
                 height: "100%",
+                transform: `rotate(${rotate}deg)`,
               }}
             >
               {tasks.wip}
@@ -217,7 +234,7 @@ const AppDragDropDemo = () => {
               style={{
                 width: "100%",
                 height: "100%",
-                zIndex: "-1",
+                transform: `rotate(${rotate}deg)`,
               }}
             >
               {tasks.complete}
