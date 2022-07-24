@@ -1,32 +1,27 @@
-body {
-  margin: 0;
+.container1,
+.container2 {
+  /* background: blue;
+  width: 350px;
+  height: 350px;
+  margin-bottom: 20px;
+  position: relative;
+  position: relative;
+  display: inline-block;
+  margin:3rem; */
 }
 
-.dev-helper .react-grid-item {
-  border: 1px dotted red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.inline {
+  /* position: absolute; */
+  /* color: white; */
+  /* font-size: 3.3rem; */
 }
+/* .kk{
+  position: relative;
+} */
 
-.info {
+.rel{
+  position: relative;
+}
+.abs{
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 120px;
-  padding: 0 1rem;
-  font-size: 0.75rem;
-  border: 1px solid gray;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-ul {
-  padding-left: 0;
-}
-
-ul li {
-  list-style: none;
-}
-.App {
-  height: 150rem;
 }

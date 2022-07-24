@@ -2,55 +2,56 @@
   text-align: center;
   width: 95%;
   margin: 15px auto;
-}
-
-.container-drag {
-  text-align: center;
-}
-
-.wip {
-  /* position: absolute; */
-  /* width: 150px;
-  height: 100vh;
-  left: 0;
-  top: 10;
-  background-color: #EEEEEE;
-  border-right: 1px dotted; */
-  /* height: 20rem;
-  background-color: gray; */
-}
-
-.header {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  background-color: #E0E0E0;
-  width:100%;
-}
-
-.task-header {
-  display: inline-block;
-  background-color: skyblue;
-  width:100%;
-}
-
-.droppable {
-  /* position: absolute; */
-  /* width: 150px;
-  height: 100vh;
-  right: 0;
-  top: 10;
-  background-color: #9E9E9E;
-  border-left: 1px dotted; */
-  /* height: 20rem;
-  background-color: gray; */
+  height: 150rem;
 }
 
 .draggable {
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
-  margin: 5px auto;
-  line-height: 5em;
+  /* width: 100px;
+  height: 100px; */
+  /* height: 3rem; */
+  /* background-color: yellow;
+  margin: 10px; 
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center; */
 }
-
+.font {
+  font-size: 1.2rem;
+}
+.cutomeDIv {
+  background-color: red;
+  width: 5rem;
+  height: 5rem;
+}
+.draggableConatiner {
+  /* background-color: red; */
+  border: 2px solid red;
+  /* display: flex;
+  justify-items: flex-start;
+  justify-content: flex-start; */
+  flex-wrap: wrap;
+}
+.draggableConatiner_outer {
+  border: 12px solid green;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* display: flex;
+  height: 20rem;
+  width: 50vw; */
+  /* justify-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap; */
+}
+.outerDivContainer {
+  /* margin: 2rem auto;
+  width: 80%; */
+}
+.anticon {
+  font-size: 2.5rem;
+}
+.layoutConatiner{
+  margin-top: 7rem;
+}

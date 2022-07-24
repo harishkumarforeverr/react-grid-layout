@@ -1,71 +1,59 @@
-export default class RenderComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {},
-      propsData: {},
-    };
-    this.onLayoutChange = this.onLayoutChange.bind(this);
-  }
+import React, { useEffect } from "react";
+import $ from "jquery";
+import "jquery-ui-bundle";
+import "jquery-ui-bundle/jquery-ui.min.css";
 
-  render() {
-    const data = this.state.data;
-    return (
-      <div className="grid chrPad-left-right chrGutter-horizontal--xs">
-        {data.length && (
-          <GridLayout
-            className="layout"
-            useCSSTransforms={false}
-            cols={12}
-            layout={this.props.layout}
-            onLayoutChange={this.onLayoutChange}
-            rowHeight={30}
-            width={1405}
-            style={{ zIndex: "0" }}
-          >
-            {data.map((element, index) => {
-              return (
-                <div
-                  style={{ zIndex: "-1" }}
-                  key={index}
-                  className="content-border"
-                >
-                  {element.displayType === "MAP" && (
-                    <MapContainer element={element} />
-                  )}
-                  {element.displayType === "CHART" && (
-                    <ChartContainer
-                      /*dimension={elementHeight}*/ element={element}
-                    />
-                  )}
-                  {element.displayType === "STATS" && (
-                    <StatsContainer
-                      element={element}
-                      id={index} /*dimension={elementHeight}*/
-                    />
-                  )}
-                  {element.displayType === "TABLE" && (
-                    <DataTableHandler data={element} />
-                  )}
-                </div>
-              );
-            })}
-          </GridLayout>
-        )}
-      </div>
-    );
-  }
+import "./Rufe.css";
 
-  onLayoutChange(layout) {
-    this.props.onLayoutChange(layout);
-  }
+const Rufe = () => {
+  $(document).ready(function () {
+    var guy = document.getElementById("guy");
+    var cont = document.getElementById("container");
+    var lastX, lastY; // Tracks the last observed mouse X and Y position
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps.data);
+    var minX = cont.offsetLeft;
+    var maxX = minX + cont.offsetWidth - guy.offsetWidth;
 
-    this.setState({
-      data: nextProps.data,
-      propsData: nextProps.propsToPass,
+    var minY = cont.offsetTop;
+    var maxY = minY + cont.offsetHeight - guy.offsetHeight;
+
+    guy.addEventListener("mousedown", function (event) {
+      if (event.which == 1) {
+        lastX = event.pageX;
+        lastY = event.pageY;
+        addEventListener("mousemove", moved);
+        event.preventDefault(); // Prevent selection
+      }
     });
-  }
-}
+
+    function buttonPressed(event) {
+      if (event.buttons == null) return event.which != 0;
+      else return event.buttons != 0;
+    }
+    function moved(event) {
+      if (!buttonPressed(event)) {
+        removeEventListener("mousemove", moved);
+      } else {
+        var distX = event.pageX - lastX;
+        var distY = event.pageY - lastY;
+
+        var targetX = guy.offsetLeft + distX;
+        var targetY = guy.offsetTop + distY;
+
+        guy.style.left = Math.min(maxX, Math.max(minX, targetX)) + "px";
+        guy.style.top = Math.min(maxY, Math.max(minY, targetY)) + "px";
+
+        lastX = event.pageX;
+        lastY = event.pageY;
+      }
+    }
+  });
+
+  return (
+    <div className="rel">
+      <div id="container"></div>
+      <div id="guy"></div>
+    </div>
+  );
+};
+export default Rufe;

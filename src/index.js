@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "./App"; 
+import 'antd/dist/antd.css'; 
 // GridIndex
 // const rootElement = document.getElementById("root");
 // const root = createRoot(rootElement);

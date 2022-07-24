@@ -3,46 +3,51 @@ import "./App.css";
 import "./styles.css";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
-
-import { Responsive, WidthProvider } from "react-grid-layout";
+import $ from "jquery";
+import "jquery-ui-bundle";
+import "jquery-ui-bundle/jquery-ui.min.css";
+import Draggable from "react-draggable";
+import { Slider, Switch } from "antd";
 import {
   HomeOutlined,
   LoadingOutlined,
   SettingFilled,
-  SmileOutlined,
+  PlusCircleFilled,
   SyncOutlined,
 } from "@ant-design/icons";
+import { Responsive, WidthProvider } from "react-grid-layout";
+import GirlImage from "./dummyImage.jpg";
+
 import DragAndDrop from "./DragAndDrop";
 import PageLayout from "./PageLayout";
 const layouts = {
   xxl: [
-    {   i: "first", x: 0, y: 0, w: 5, h: 4 },
-    {   i: "second", x: 6, y: 0, w: 4, h: 4 },
-    {   i: "third", x: 8, y: 0, w: 3, h: 2 },
+    { i: "first", x: 0, y: 0, w: 5, h: 4 },
+    { i: "second", x: 6, y: 0, w: 4, h: 4 },
+    { i: "third", x: 8, y: 0, w: 3, h: 2 },
   ],
   xl: [
-    {   i: "first", x: 0, y: 0, w: 5, h: 5 },
-    {   i: "second", x: 6, y: 0, w: 4, h: 5 },
-    {   i: "third", x: 7, y: 0, w: 2, h: 2 },
+    { i: "first", x: 0, y: 0, w: 5, h: 5 },
+    { i: "second", x: 6, y: 0, w: 4, h: 5 },
+    { i: "third", x: 7, y: 0, w: 2, h: 2 },
   ],
   lg: [
-    {   i: "first", x: 1, y: 0, w: 2, h: 2 },
-    {   i: "second", x: 3, y: 0, w: 2, h: 2 },
-    {   i: "third", x: 5, y: 0, w: 2, h: 2 },
+    { i: "first", x: 1, y: 0, w: 2, h: 2 },
+    { i: "second", x: 3, y: 0, w: 2, h: 2 },
+    { i: "third", x: 5, y: 0, w: 2, h: 2 },
   ],
   md: [
-    {   i: "first", x: 0, y: 0, w: 2, h: 2 },
-    {   i: "second", x: 2, y: 0, w: 2, h: 2 },
-    {   i: "third", x: 4, y: 0, w: 2, h: 2 },
+    { i: "first", x: 0, y: 0, w: 2, h: 2 },
+    { i: "second", x: 2, y: 0, w: 2, h: 2 },
+    { i: "third", x: 4, y: 0, w: 2, h: 2 },
   ],
   sm: [
-    {   i: "first", x: 0, y: 0, w: 1, h: 2 },
-    {   i: "second", x: 1, y: 0, w: 2, h: 2 },
-    {   i: "third", x: 3, y: 0, w: 1, h: 2 },
+    { i: "first", x: 0, y: 0, w: 1, h: 2 },
+    { i: "second", x: 1, y: 0, w: 2, h: 2 },
+    { i: "third", x: 3, y: 0, w: 1, h: 2 },
   ],
   xs: [
     {
-       
       i: "first",
       x: 0,
       y: 0,
@@ -50,22 +55,76 @@ const layouts = {
       h: 2,
       resizeHandles: ["s"], // 利用断点可以配置个性化的 resizeHandles
     },
-    {   i: "second", x: 0, y: 2, w: 2, h: 2 },
-    {   i: "third", x: 0, y: 4, w: 2, h: 2 },
+    { i: "second", x: 0, y: 2, w: 2, h: 2 },
+    { i: "third", x: 0, y: 4, w: 2, h: 2 },
   ],
 };
 export default class AppDragDropDemo extends Component {
   state = {
     tasks: [
-      { name: "Learn Angular", category: "wip", bgcolor: "yellow" },
-      { name: "React", category: "wip", bgcolor: "pink" },
-      { name: "Vue", category: "complete", bgcolor: "skyblue" },
+      {
+        name: "java",
+        category: "wip",
+        bgcolor: "yellow",
+        custom: (
+          <img
+            style={{
+              width: "5rem",
+            }}
+            src={GirlImage}
+          />
+        ),
+      },
+      {
+        name: "DS",
+        category: "wip",
+        bgcolor: "pink",
+        custom: <h1>Hi Java</h1>,
+      },
+      {
+        name: "Vue",
+        category: "complete",
+        bgcolor: "skyblue",
+        custom: <p>dddd</p>,
+      },
       { name: "image111111", category: "outsideDiv", bgcolor: "grey" },
-      { name: "icon111111", category: "outsideDiv", bgcolor: "green" },
-      { name: "text111111", category: "outsideDiv", bgcolor: "blue" },
-      { name: "image222222", category: "outsideDiv", bgcolor: "grey" },
-      { name: "icon222222", category: "outsideDiv", bgcolor: "green" },
-      { name: "text222222", category: "outsideDiv", bgcolor: "blue" },
+      {
+        custom: <Slider defaultValue={30} />,
+        category: "outsideDiv",
+        bgcolor: "white",
+        name: "slider",
+      },
+      {
+        name: "text111111",
+        category: "outsideDiv",
+        bgcolor: "blue",
+        custom: <h3>dddd</h3>,
+      },
+      {
+        custom: <PlusCircleFilled />,
+        category: "outsideDiv",
+        bgcolor: "grey",
+        name: "ok",
+      },
+      {
+        name: "icon222222",
+        category: "outsideDiv",
+        bgcolor: "green",
+        custom: <h2>dddd</h2>,
+      },
+      {
+        name: "dd",
+        category: "outsideDiv",
+        bgcolor: "blue",
+        custom: (
+          <img
+            style={{
+              width: "5rem",
+            }}
+            src={GirlImage}
+          />
+        ),
+      },
     ],
     customLayout: layouts,
   };
@@ -78,26 +137,6 @@ export default class AppDragDropDemo extends Component {
   onDragOver = (ev) => {
     ev.preventDefault();
     console.log("d");
-  };
-
-  updateTheLayoutObject = (bool) => {
-    const newObj = {};
-    for (let value in this.state.customLayout) {
-      const updated = this.state.customLayout[value].map((obj) => {
-        return {
-          ...obj,
-          // static: bool,
-        };
-      });
-      newObj[value] = updated;
-    }
-    this.setState({
-      ...this.state,
-      customLayout: newObj,
-    });
-  };
-  handleCustomLayout = () => {
-    this.updateTheLayoutObject(false);
   };
   onDrop = (ev, cat) => {
     let id = ev.dataTransfer.getData("id");
@@ -124,61 +163,53 @@ export default class AppDragDropDemo extends Component {
 
     this.state.tasks.forEach((t) => {
       tasks[t.category].push(
-        <div
-          key={t.name}
-          onDragStart={(e) => {
-            this.onDragStart(e, t.name);
-          }}
-          draggable
-          className="draggable"
-          style={{ backgroundColor: t.bgcolor }}
-        >
-          {t.name}
-        </div>
+        <Draggable bounds="parent">
+          <div
+            key={t.name}
+            onDragStart={(e) => {
+              this.onDragStart(e, t.name);
+            }}
+            draggable
+            className="draggable"
+            style={{ backgroundColor: t.bgcolor }}
+          >
+            {t.custom}
+          </div>
+        </Draggable>
       );
     });
 
     return (
       <div className="container-drag">
-        <div>
-          {/* <button
-            style={{
-              width: "15rem",
-              height: "3.5rem",
-              margin: "5rem",
-              cursor: "pointer",
-            }}
-            onClick={this.handleCustomLayout}
-          >
-            Toggle Area increase
-          </button> */}
-        </div>
-        <div>
+        <div></div>
+        <div className="outerDivContainer">
           <h1>OuterDiv start here</h1>
-          <div
-            className="droppable"
-            onDragOver={(e) => this.onDragOver(e)}
-            onDrop={(e) => this.onDrop(e, "outsideDiv")}
-            style={{
-              width: "100%",
-              height: "100%",
-              zIndex: "-1",
-            }}
-          >
+          <PageLayout layouts={this.state.customLayout}>
             <div
               style={{
-                display: "flex",
+                margin: "0 auto",
               }}
+              key="first"
             >
-              {tasks.outsideDiv}
+              <div
+                className="draggableConatiner_outer"
+                onDragOver={(e) => this.onDragOver(e)}
+                onDrop={(e) => {
+                  this.onDrop(e, "outsideDiv");
+                }}
+                style={{}}
+              >
+                {tasks.outsideDiv}
+              </div>
             </div>
-          </div>
+          </PageLayout>
           <h2> OuterDiv ends here</h2>
         </div>
-        <PageLayout layouts={this.state.customLayout}>
+      <div className="layoutConatiner">
+      <PageLayout layouts={this.state.customLayout}>
           <div key="first">
             <div
-              className="wip"
+              className="draggableConatiner"
               onDragOver={(e) => this.onDragOver(e)}
               onDrop={(e) => {
                 this.onDrop(e, "wip");
@@ -186,7 +217,6 @@ export default class AppDragDropDemo extends Component {
               style={{
                 width: "100%",
                 height: "100%",
-                zIndex: "-1",
               }}
             >
               {tasks.wip}
@@ -194,7 +224,7 @@ export default class AppDragDropDemo extends Component {
           </div>
           <div key="second">
             <div
-              className="droppable"
+              className="droppable draggableConatiner"
               onDragOver={(e) => this.onDragOver(e)}
               onDrop={(e) => this.onDrop(e, "complete")}
               style={{
@@ -203,11 +233,11 @@ export default class AppDragDropDemo extends Component {
                 zIndex: "-1",
               }}
             >
-              {/* <span className="task-header">COMPLETED</span> */}
               {tasks.complete}
             </div>
           </div>
         </PageLayout>
+      </div>
       </div>
     );
   }
